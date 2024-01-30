@@ -1,0 +1,44 @@
+<%- include("../templates/encabezado")%>
+<%- include("../templates/menu")%>
+
+<div class="container mt-5"> 
+    <div class="card">
+        <div class="card-header">
+            <h1>Clientes</h1>
+        </div>
+        <div class="card body">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>id</th>
+                        <th>Nombre</th>
+                        <th>Password</th>
+                        <th>Foto</th>
+                        <th>Editar/Borrar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                    clientes.forEach((cliente)=>{
+                    %>
+                    <tr>
+                        <td><%= cliente.id %></td>
+                        <td><%= cliente.nombre %></td>
+                        <td><%= cliente.cliente %></td>
+                        <td>*****</td>
+                        <td><img src="/images/<%= cliente.foto %>" width="100px" alt=""></td>
+                        <td>
+                            <a href="/editar/<%= cliente.id %>">Editar</a>
+                            <a href="/borrar/<%= cliente.id %>">Borrar</a>
+                        </td>
+                    </tr>
+                    <%
+                    });
+                    %>
+                </tbody>
+            </table>
+        </div>
+        <div class="card-footer"></div>
+    </div>
+</div>
+<%- include("../templates/pie")%>
